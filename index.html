@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>Contact Card</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+
+        <script type="text/javascript">
+        	$(document).ready(function(){
+        		var result3;
+        		$('#form').submit(function(){
+					var result1 = $('#firstname').val();
+					var result2 = $('#lastname').val();
+					result3 = $('#description').val();
+					console.log(result3);
+					$('.submission').append("<h1>" + result1 + " " + result2 + "</h1><br><p>Click for description!</p></div>");
+					return false;
+				});
+				$('.submission').click(function(){
+					$('h1').html("<h1></h1>");
+					$('p').html("<p>" + result3 + "</p>");
+					console.log(result3);
+					event.stopPropagation();
+				});
+        	});
+        </script>
+	</head>
+	<body>
+		<div id="container">
+			<form id="form">
+				First Name: <input type="text" id="firstname" placeholder="First Name" name="firstname"><br>
+				Last Name: <input type="text" id="lastname" placeholder="Last Name" name="lastname"><br>
+				<br>
+				Description:<br>
+				<textarea type="textarea" rows="4" id="description" placeholder="Enter description" name="description"></textarea>
+				<input type='submit' value='submit!'>
+			</form>
+			<div class="submission">
+
+			</div>
+		</div>
+	</body>
+</html>
